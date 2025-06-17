@@ -4,10 +4,10 @@ Generate a **Software Bill of Materials (SBOM)** for any Alfresco Docker image i
 
 ## Why use this?
 
-* One‑liner reports – `make run IMAGE=alfresco/alfresco-content-repository-community:25.1.0` drops a browsable HTML SBOM in `reports/`.
-* License coverage at a glance – the script flags packages without licensing info.
-* Pluggable templates – supply any Syft template (we ship a flat one) to keep the parser screaming fast.
-* Opinionated defaults – sane exclusions (`/lib`, `/var`), colourised CLI output, zero‑config Docker pulls.
+* One‑liner reports: `make run IMAGE=alfresco/alfresco-content-repository-community:25.1.0` drops a browsable HTML SBOM in `reports/`.
+* License coverage at a glance: the script flags packages without licensing info.
+* Pluggable templates: supply any Syft template (we ship a flat one) to keep the parser screaming fast.
+* Opinionated defaults: sane exclusions (`/lib`, `/var`), colourised CLI output, zero‑config Docker pulls.
 
 ## Prerequisites
 
@@ -72,7 +72,3 @@ $ make run-with-template \
 ## Contributing
 
 Issues and PRs welcome! Please run `make lint` before raising a pull request.
-
-## License
-
-Apache 2.0 — see `LICENSE` for details.
