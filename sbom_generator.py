@@ -19,7 +19,7 @@ import requests
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from functools import lru_cache
-from typing import Dict, List, Tuple, Optional, Set
+from typing import Dict, List, Tuple, Optional
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -572,11 +572,11 @@ class HTMLReportGenerator:
                 source_indicator = ' <em>(enriched)</em>'
             
             rows.append(
-                f'<tr>'
-                f'<td>{package.name}</td>'
-                f'<td>{package.version}</td>'
-                f'<td>{license_cell}{source_indicator}</td>'
-                f'</tr>'
+                f'<tr>\n'
+                f'  <td>{package.name}</td>\n'
+                f'  <td>{package.version}</td>\n'
+                f'  <td>{license_cell}{source_indicator}</td>\n'
+                f'</tr>\n'
             )
         
         return ''.join(rows)
@@ -588,7 +588,6 @@ class HTMLReportGenerator:
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SBOM Report - {image_name}</title>
 </head>
 <body>
@@ -600,43 +599,26 @@ class HTMLReportGenerator:
         
         <h2>Summary Statistics</h2>
         <div>
-            <div>
-                <div>{stats['total_packages']}</div>
-                <div>Total Packages</div>
-            </div>
-            <div">
-                <div>{stats['packages_with_licenses']}</div>
-                <div>Packages with Licenses</div>
-            </div>
-            <div>
-                <div>{stats['packages_without_licenses']}</div>
-                <div>Packages without Licenses</div>
-            </div>
-            <div>
-                <div>{stats['unique_licenses']}</div>
-                <div>Unique Licenses</div>
-            </div>
-            <div>
-                <div>{stats['license_coverage']}</div>
-                <div>License Coverage</div>
-            </div>
+            <div>Total Packages: {stats['total_packages']}</div>
+            <div>Packages with Licenses: {stats['packages_with_licenses']}</div>
+            <div>Packages without Licenses: {stats['packages_without_licenses']}</div>
+            <div>Unique Licenses: {stats['unique_licenses']}</div>
+            <div>License Coverage: {stats['license_coverage']}</div>
         </div>
         
         <h2>Package Details</h2>
-        <div style="overflow-x: auto;">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Package Name</th>
-                        <th>Version</th>
-                        <th>Licenses</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {package_rows}
-                </tbody>
-            </table>
-        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Package Name</th>
+                    <th>Version</th>
+                    <th>Licenses</th>
+                </tr>
+            </thead>
+            <tbody>
+                {package_rows}
+            </tbody>
+        </table>
         
         <div>
             <p>
