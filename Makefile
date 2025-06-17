@@ -6,7 +6,7 @@ PYTHON := python3
 PIP := pip3
 VENV_DIR := venv
 SCRIPT := sbom_generator.py
-DEFAULT_IMAGE := ubuntu:latest
+DEFAULT_IMAGE := alfresco/alfresco-content-repository-community:25.1.0
 OUTPUT_DIR := reports
 TEMPLATE_DIR := templates
 
@@ -35,10 +35,10 @@ help: ## Show this help message
 setup: ## Install Python dependencies and Syft
 	@echo "$(BLUE)Setting up SBOM Generator environment...$(NC)"
 	@$(PYTHON) -m venv $(VENV_DIR) || (echo "$(RED)Failed to create virtual env$(NC)" && exit 1)
-	@echo "$(GREEN)✓ Virtual environment created$(NC)"
+	@echo "$(GREEN) Virtual environment created$(NC)"
 	@. $(VENV_DIR)/bin/activate && $(PIP) install --upgrade pip
 	@. $(VENV_DIR)/bin/activate && $(PIP) install requests
-	@echo "$(GREEN)✓ Python dependencies installed$(NC)"
+	@echo "$(GREEN) Python dependencies installed$(NC)"
 	@$(MAKE) install-syft
 	@$(MAKE) create-dirs
 	@echo "$(GREEN)🎉 Setup complete! Run 'make run' to test$(NC)"
