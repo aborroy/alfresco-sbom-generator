@@ -1,0 +1,62 @@
+# Byte-compiled / optimized / DLL files
+
+**pycache**/
+\*.py\[cod]
+
+# C extensions
+
+\*.so
+
+# Distribution / packaging
+
+.Python
+env/
+.venv/
+venv/
+build/
+dist/
+.eggs/
+\*.egg-info/
+
+# Logs and databases
+
+\*.log
+\*.sqlite3
+
+# Unit test / coverage reports
+
+.pytest\_cache/
+.coverage
+dist-coverage/
+coverage.xml
+htmlcov/
+.mypy\_cache/
+
+# Syft cache
+
+.syft/
+
+# Generated SBOM reports
+
+reports/
+\*.html
+
+# Generated templates
+
+templates/\*.tmpl
+
+# Editor & IDE metadata
+
+.vscode/
+.idea/
+\*.swp
+
+# macOS / Windows junk
+
+.DS\_Store
+Thumbs.db
+
+# Docker override files
+
+docker-compose.override.yml
+

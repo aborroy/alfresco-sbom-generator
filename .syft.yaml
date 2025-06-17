@@ -1,0 +1,4 @@
+java:
+   maven-url: "https://repo1.maven.org/maven2"
+   max-parent-recursive-depth: 5
+   use-network: true
