@@ -694,7 +694,7 @@ def main() -> None:
         packages = LicenseEnricher.enrich_packages(packages)
 
         # Step 4: Deduplicate packages
-        print("🧹 Deduplicating packages...")
+        print("Deduplicating packages...")
         original_count = len(packages)
         packages = PackageDeduplicator.deduplicate(packages)
         
